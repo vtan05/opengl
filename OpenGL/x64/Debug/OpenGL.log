@@ -1,3 +1,3 @@
 ﻿  Application.cpp
-C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\Application.cpp(192,25): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\Application.cpp(170,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   OpenGL.vcxproj -> C:\Users\vanta\Desktop\OpenGL\code\x64\Debug\OpenGL.exe
