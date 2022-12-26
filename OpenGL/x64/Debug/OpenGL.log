@@ -1,3 +1,6 @@
 ﻿  Application.cpp
-C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\Application.cpp(170,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\Application.cpp(173,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  VertexArray.cpp
+C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\VertexArray.cpp(26,1): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
+  Generating Code...
   OpenGL.vcxproj -> C:\Users\vanta\Desktop\OpenGL\code\x64\Debug\OpenGL.exe
