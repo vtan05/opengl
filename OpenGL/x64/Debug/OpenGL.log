@@ -1,6 +1,9 @@
 ﻿  Application.cpp
-C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\Application.cpp(173,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Vanessa\Desktop\OpenGL\codes\OpenGL\src\Application.cpp(173,29): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   VertexArray.cpp
-C:\Users\vanta\Desktop\OpenGL\code\OpenGL\src\VertexArray.cpp(26,1): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
+C:\Users\Vanessa\Desktop\OpenGL\codes\OpenGL\src\VertexArray.cpp(26,1): warning C4312: 'type cast': conversion from 'unsigned int' to 'const void *' of greater size
   Generating Code...
-  OpenGL.vcxproj -> C:\Users\vanta\Desktop\OpenGL\code\x64\Debug\OpenGL.exe
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'glew32s.lib(glew.obj)' or at 'C:\Users\Vanessa\Desktop\OpenGL\codes\x64\Debug\vc120.pdb'; linking object as if no debug info
+  OpenGL.vcxproj -> C:\Users\Vanessa\Desktop\OpenGL\codes\x64\Debug\OpenGL.exe
