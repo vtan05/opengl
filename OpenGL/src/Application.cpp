@@ -17,6 +17,7 @@
 
 #include "glm/glm.hpp"
 #include "glm/gtc/matrix_transform.hpp"
+#include "glm/gtc/type_ptr.hpp"
 
 int main(void)
 {
@@ -78,12 +79,12 @@ int main(void)
 
         IndexBuffer ib(indices, 6);
 
-        glm::mat4 proj = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f);
+        //glm::mat4 proj = glm::ortho(-2.0f, 2.0f, -1.5f, 1.5f, -1.0f, 1.0f); //theCherno
 
         Shader shader("res/shaders/Basic.shader");
         shader.Bind();
-        shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
-        shader.SetUniformMat4f("u_MVP", proj);
+        //shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f); //theCherno
+        //shader.SetUniformMat4f("u_MVP", proj); //theCherno
 
         Texture texture("res/textures/doge.jpg");
         texture.Bind();
@@ -96,24 +97,32 @@ int main(void)
 
         Renderer renderer;
 
-        float r = 0.0f;
-        float increment = 0.05f;
+        //float r = 0.0f; //theCherno
+        //float increment = 0.05f; //theCherno
+
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))
         {
             /* Render here */
             renderer.Clear();
 
+            //shader.Bind(); //theCherno
+            //shader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f); //theCherno
+
+            glm::mat4 proj = glm::mat4(1.0f);
+            proj = glm::translate(proj, glm::vec3(0.5f, -0.5f, 0.0f));
+            proj = glm::rotate(proj, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
             shader.Bind();
-            shader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f);
+            shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f);
+            shader.SetUniformMat4f("u_MVP", proj);
 
             renderer.Draw(va, ib, shader);
 
-            if (r > 1.0f)
-                increment = -0.05f;
-            else if (r < 0.0f)
-                increment = 0.05f;
-            r += increment;
+            //if (r > 1.0f) //theCherno
+            //    increment = -0.05f; //theCherno
+            //else if (r < 0.0f) //theCherno
+            //    increment = 0.05f; //theCherno
+            //r += increment; //theCherno
 
             /* Swap front and back buffers */
             GLCall(glfwSwapBuffers(window));
