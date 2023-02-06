@@ -109,13 +109,12 @@ int main(void)
 
         glm::mat4 proj = glm::ortho(0.0f, 960.0f, 0.0f, 540.0f, -1.0f, 1.0f); 
         glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(-100, 0, 0));
-        glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
-        glm::mat4 mvp = proj * view * model;
+        //glm::mat4 model = glm::translate(glm::mat4(1.0f), glm::vec3(200, 200, 0));
+        //glm::mat4 mvp = proj * view * model;
 
         Shader shader("res/shaders/Basic.shader");
         shader.Bind();
         shader.SetUniform4f("u_Color", 0.8f, 0.3f, 0.8f, 1.0f); //theCherno
-        shader.SetUniformMat4f("u_MVP", mvp); //theCherno
 
         Texture texture("res/textures/doge.jpg");
         texture.Bind();
@@ -141,6 +140,8 @@ int main(void)
         bool show_another_window = false;
         ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
 
+        glm::vec3 translation(200, 200, 0);
+
         /* Loop until the user closes the window */
         while (!glfwWindowShouldClose(window))
         {
@@ -152,8 +153,12 @@ int main(void)
             ImGui_ImplGlfw_NewFrame();
             ImGui::NewFrame();
 
-            //shader.Bind(); //theCherno
+            glm::mat4 model = glm::translate(glm::mat4(1.0f), translation);
+            glm::mat4 mvp = proj * view * model;
+
+            shader.Bind(); //theCherno
             //shader.SetUniform4f("u_Color", r, 0.3f, 0.8f, 1.0f); //theCherno
+            shader.SetUniformMat4f("u_MVP", mvp); //theCherno
 
             //glm::mat4 proj = glm::mat4(1.0f);
             //proj = glm::translate(proj, glm::vec3(0.5f, -0.5f, 0.0f));
@@ -172,16 +177,15 @@ int main(void)
 
             // 2. Show a simple window that we create ourselves. We use a Begin/End pair to create a named window.
             {
-                static float f = 0.0f;
                 static int counter = 0;
 
                 ImGui::Begin("Hello, world!");                          // Create a window called "Hello, world!" and append into it.
 
-                ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
-                ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
-                ImGui::Checkbox("Another Window", &show_another_window);
+                //ImGui::Text("This is some useful text.");               // Display some text (you can use a format strings too)
+                //ImGui::Checkbox("Demo Window", &show_demo_window);      // Edit bools storing our window open/close state
+                //ImGui::Checkbox("Another Window", &show_another_window);
 
-                ImGui::SliderFloat("float", &f, 0.0f, 1.0f);            // Edit 1 float using a slider from 0.0f to 1.0f
+                ImGui::SliderFloat3("Translate X", &translation.x, 0.0f, 960.0f);     
                 ImGui::ColorEdit3("clear color", (float*)&clear_color); // Edit 3 floats representing a color
 
                 if (ImGui::Button("Button"))                            // Buttons return true when clicked (most widgets return true when edited/activated)
@@ -194,14 +198,14 @@ int main(void)
             }
 
             // 3. Show another simple window.
-            if (show_another_window)
-            {
-                ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
-                ImGui::Text("Hello from another window!");
-                if (ImGui::Button("Close Me"))
-                    show_another_window = false;
-                ImGui::End();
-            }
+            //if (show_another_window)
+            //{
+            //    ImGui::Begin("Another Window", &show_another_window);   // Pass a pointer to our bool variable (the window will have a closing button that will clear the bool when clicked)
+            //    ImGui::Text("Hello from another window!");
+            //    if (ImGui::Button("Close Me"))
+            //        show_another_window = false;
+            //    ImGui::End();
+            //}
 
             // Rendering
             ImGui::Render();
