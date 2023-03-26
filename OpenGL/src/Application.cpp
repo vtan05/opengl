@@ -27,6 +27,7 @@
 #include "test/TestClearColor.h"
 #include "test/TestTexture2D.h"
 #include "test/TestCS1.h"
+#include "test/TestCS2.h"
 
 
 int main(void)
@@ -102,6 +103,7 @@ int main(void)
         testMenu->RegisterTest<test::TestClearColor>("Clear Color GUI");
         testMenu->RegisterTest<test::TestTexture2D>("Render 2 2D Textures");
         testMenu->RegisterTest<test::TestCS1>("Coordinate System Part 1");
+        testMenu->RegisterTest<test::TestCS2>("Coordinate System Part 2");
 
         while (!glfwWindowShouldClose(window))
         {

@@ -152,6 +152,7 @@
     <ClCompile Include="src\test\Test.cpp" />
     <ClCompile Include="src\test\TestCS1.cpp" />
     <ClCompile Include="src\test\TestClearColor.cpp" />
+    <ClCompile Include="src\test\TestCS2.cpp" />
     <ClCompile Include="src\test\TestTexture2D.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\vendor\glm\detail\glm.cpp" />
@@ -312,6 +313,7 @@
     <ClInclude Include="src\test\Test.h" />
     <ClInclude Include="src\test\TestCS1.h" />
     <ClInclude Include="src\test\TestClearColor.h" />
+    <ClInclude Include="src\test\TestCS2.h" />
     <ClInclude Include="src\test\TestTexture2D.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\vendor\glm\common.hpp" />
