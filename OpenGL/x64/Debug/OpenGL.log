@@ -1,2 +1,13 @@
 ﻿  Application.cpp
-  OpenGL.vcxproj -> C:\Users\vanta\Desktop\OpenGL\code\x64\Debug\OpenGL.exe
+  TestCS1.cpp
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.29.30133\include\memory(3382,56): warning C4244: 'argument': conversion from '_Ty' to 'unsigned int', possible loss of data
+          with
+          [
+              _Ty=unsigned __int64
+          ]
+C:\Users\Vanessa\Desktop\OpenGL\codes\OpenGL\src\test\TestCS1.cpp(37): message : see reference to function template instantiation 'std::unique_ptr<VertexBuffer,std::default_delete<VertexBuffer>> std::make_unique<VertexBuffer,float(&)[20],unsigned __int64,0>(float (&)[20],unsigned __int64 &&)' being compiled
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+LINK : warning LNK4098: defaultlib 'LIBCMT' conflicts with use of other libs; use /NODEFAULTLIB:library
+glew32s.lib(glew.obj) : warning LNK4099: PDB '' was not found with 'glew32s.lib(glew.obj)' or at ''; linking object as if no debug info
+  OpenGL.vcxproj -> C:\Users\Vanessa\Desktop\OpenGL\codes\x64\Debug\OpenGL.exe

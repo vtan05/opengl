@@ -26,6 +26,7 @@
 
 #include "test/TestClearColor.h"
 #include "test/TestTexture2D.h"
+#include "test/TestCS1.h"
 
 
 int main(void)
@@ -51,6 +52,10 @@ int main(void)
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 0);
 #endif
 
+    // settings
+    const unsigned int SCR_WIDTH = 2500;
+    const unsigned int SCR_HEIGHT = 1600;
+
     GLFWwindow* window;
 
     /* Initialize the library */
@@ -62,7 +67,7 @@ int main(void)
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
     /* Create a windowed mode window and its OpenGL context */
-    window = glfwCreateWindow(960, 540, "LearnOpenGL", NULL, NULL);
+    window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
     if (!window)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -94,8 +99,9 @@ int main(void)
         test::TestMenu* testMenu = new test::TestMenu(currentTest);
         currentTest = testMenu;
 
-        testMenu->RegisterTest<test::TestClearColor>("Clear Color");
-        testMenu->RegisterTest<test::TestTexture2D>("2D Texture");
+        testMenu->RegisterTest<test::TestClearColor>("Clear Color GUI");
+        testMenu->RegisterTest<test::TestTexture2D>("Render 2 2D Textures");
+        testMenu->RegisterTest<test::TestCS1>("Coordinate System Part 1");
 
         while (!glfwWindowShouldClose(window))
         {
