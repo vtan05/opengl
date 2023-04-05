@@ -16,6 +16,8 @@ namespace test
 		: m_Proj(glm::perspective(glm::radians(45.0f), 2500.0f / 1600.0f, 0.1f, 100.0f)),
 		m_View(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f)))
 	{
+        glDisable(GL_DEPTH_TEST);
+
         float position[] = {
             // positions          // texture coords
              0.5f,  0.5f, 0.0f,   1.0f, 1.0f, // top right

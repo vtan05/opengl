@@ -118,6 +118,7 @@ int main(void)
             {
                 currentTest->OnUpdate(0.0f);
                 currentTest->OnRender();
+
                 ImGui::Begin("Test");
                 if (currentTest != testMenu && ImGui::Button("<-"))
                 {
