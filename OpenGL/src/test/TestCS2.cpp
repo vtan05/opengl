@@ -13,8 +13,8 @@
 namespace test
 {
     TestCS2::TestCS2()
-        : m_Proj(glm::perspective(glm::radians(45.0f), 2500.0f / 1600.0f, 0.1f, 100.0f)),
-        m_View(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f)))
+        : m_Proj(glm::perspective(glm::radians(45.0f), 2500.0f / 1600.0f, 0.1f, 100.0f))
+        //m_View(glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -3.0f)))
     {
         glEnable(GL_DEPTH_TEST);
 
@@ -130,6 +130,13 @@ namespace test
 
             //renderer.Draw(*m_VAO, *m_IndexBuffer, *m_Shader); //theCherno (with index buffer)
             //glDrawArrays(GL_TRIANGLES, 0, 36);
+
+            // camera/view transformation
+            glm::mat4 view = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+            float radius = 10.0f;
+            float camX = static_cast<float>(sin(glfwGetTime()) * radius);
+            float camZ = static_cast<float>(cos(glfwGetTime()) * radius);
+            m_View = glm::lookAt(glm::vec3(camX, 0.0f, camZ), glm::vec3(0.0f, 0.0f, 0.0f), glm::vec3(0.0f, 1.0f, 0.0f));
 
             for (unsigned int i = 0; i < 10; i++)
             {
